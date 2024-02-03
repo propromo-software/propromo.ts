@@ -77,7 +77,6 @@
 		"zod": "^3.21.4"
 	},
 	"dependencies": {
-		"@builder.io/sdk-svelte": "^0.6.4",
 		"@lucia-auth/adapter-prisma": "^3.0.1",
 		"@lucia-auth/oauth": "^3.3.1",
 		"@prisma/client": "^5.5.2",

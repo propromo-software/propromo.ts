@@ -45,7 +45,6 @@ The project can be deployed to Vercel, Netlify or Cloudflare-Pages.
 ### Backend & Database
 
 -   **Authentication**: [Lucia](https://lucia-auth.com/getting-started/sveltekit/)
--   **CMS**: [BuilderIO](https://www.builder.io/c/docs/developers)
 -   **Database ([view supported](#supported-databases))**: [Planetscale](https://planetscale.com/).
     -   **ORM**: [Prisma](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases-typescript-planetscale)
 -   **Database Cache**:
