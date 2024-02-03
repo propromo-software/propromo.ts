@@ -13,14 +13,6 @@
 
 This template is an extended version of [sveltekit-projecttemplate-hobby](https://github.com/jonasfroeller/sveltekit-projecttemplate-hobby).
 
-## Deployment
-
-The project can be deployed to Vercel, Netlify or Cloudflare-Pages.
-
-[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=sveltekit-projecttemplate-business.vercel.app)](https://sveltekit-projecttemplate-business.vercel.app)
-![CloudflarePages](https://img.shields.io/website/https/sveltekit-projecttemplate-business.pages.dev?logo=cloudflarepages&label=cloudlare)
-![Netlify](https://img.shields.io/website/https/sveltekit-projecttemplate-business.netlify.app?logo=netlify&label=netlify)
-
 ## Tech Stack
 
 ### Frontend & Testing
