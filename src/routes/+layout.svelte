@@ -1,8 +1,10 @@
 <script lang="ts">
-	const modules = import.meta.glob('./**/**+page*.svelte');
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import ThemeSwitch from '$component/ThemeSwitch.svelte';
 	import '$main/app.css';
 	import '$main/style.scss';
+
+	const modules = import.meta.glob('./**/**+page*.svelte');
 
 	const paths = new Map();
 	for (const path in modules) {
@@ -12,6 +14,8 @@
 
 		paths.set(link, name);
 	}
+
+	injectSpeedInsights();
 </script>
 
 <header class="sticky top-0 p-4 shadow-lg bg-secondary text-secondary-foreground">
