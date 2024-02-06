@@ -4,44 +4,27 @@
 	import '$main/app.css';
 	import '$main/style.scss';
 
-	const modules = import.meta.glob('./**/**+page*.svelte');
-
-	const paths = new Map();
-	for (const path in modules) {
-		const stringToRemove = new RegExp(/\/\+page(?:\..+)?\.svelte/g);
-		const link = path.replace('./', '/').replace(stringToRemove, '');
-		const name = link.slice(1, link.length);
-
-		paths.set(link, name);
-	}
-
 	injectSpeedInsights();
 </script>
 
-<header class="sticky top-0 p-4 shadow-lg bg-secondary text-secondary-foreground">
-	<nav class="flex">
-		<span class="flex gap-6">
-			<a class="hover:underline" href="/">home</a>
-			<ThemeSwitch />
-		</span>
-		<div class="flex justify-end w-full gap-6">
-			{#each paths as path}
-				<a class="hover:underline" href={path[0]}>{path[1]}</a>
-			{:else}
-				did not find any routes...
-			{/each}
-		</div>
+<header class="sticky top-0 p-4">
+	<nav class="flex justify-end gap-4 uppercase">
+		<a class="px-4 py-2 hover:underline bg-primary text-accent rounded-xl" href="/signin"
+			>register</a
+		>
+		<a class="px-4 py-2 hover:underline bg-primary text-accent rounded-xl" href="/login"
+			>login</a
+		>
 	</nav>
 </header>
 
-<main class="flex items-center justify-center min-h-screen">
+<main class="flex justify-center min-h-screen mt-12">
 	<slot />
 </main>
 
-<footer class="flex justify-center gap-6 p-4 shadow-inner bg-secondary text-secondary-foreground">
-	{#each paths as path}
-		<a class="hover:underline" href={path[0]}>{path[1]}</a>
-	{:else}
-		did not find any routes...
-	{/each}
+<footer
+	class="flex flex-col items-center gap-3 p-4 shadow-inner bg-secondary text-secondary-foreground"
+>
+	<ThemeSwitch />
+	&COPY; Propromo
 </footer>

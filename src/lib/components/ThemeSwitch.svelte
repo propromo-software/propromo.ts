@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Switch } from '$component/ui/switch';
 	import { theme } from '$lib/store/theme';
-	import { updateTheme } from '$lib/dom';
+	import { updateTheme } from '$main/lib/browser';
 
 	$: {
 		$theme = checked ? 'dark' : 'light';

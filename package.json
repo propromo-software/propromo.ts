@@ -79,6 +79,7 @@
 	"dependencies": {
 		"@lucia-auth/adapter-prisma": "^3.0.1",
 		"@lucia-auth/oauth": "^3.3.1",
+		"@octokit/graphql-schema": "^14.53.0",
 		"@prisma/client": "^5.5.2",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@vercel/speed-insights": "^1.0.9",
