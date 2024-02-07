@@ -16,7 +16,7 @@ export interface MinimalMilestone extends Omit<Milestone, MilestoneTypesToIgnore
 		totalCount: number;
 		nodes: MinimalIssue[];
 	};
-} // add url,state in the microservice
+}
 
 type IssueTypesToIgnore =
 	| '__typename'

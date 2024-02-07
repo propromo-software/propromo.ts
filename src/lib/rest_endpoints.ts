@@ -1,4 +1,7 @@
-export const REST_API_BASE_URL = 'https://propromo-rest.duckdns.org';
+import { DEV_MODE } from '$env/static/private';
+
+export const REST_API_BASE_URL =
+	DEV_MODE === 'true' ? 'http://localhost:3000' : 'https://propromo-rest.duckdns.org';
 export const REST_API_MILESTONE_ENDPOINT = function (
 	organization_name: string,
 	project_id: string,
