@@ -13,7 +13,7 @@
 	<title>LogIn</title>
 </svelte:head>
 
-<section class="p-4 border-2 rounded-lg border-secondary">
+<section class="p-4 border-2 rounded-lg border-secondary h-min">
 	<Tabs.Root value="username-password" class="w-[400px]">
 		<Tabs.List class="grid w-full grid-cols-2">
 			<Tabs.Trigger value="username-password">Username & Password</Tabs.Trigger>
@@ -45,6 +45,7 @@
 						/>
 						<input
 							type="submit"
+							value="LogIn"
 							class={`mt-2 ${buttonVariants({ variant: 'outline' })}`}
 						/>
 					</form>

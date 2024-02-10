@@ -1,7 +1,5 @@
 <script lang="ts">
-	// import { enhance } from '$app/forms';
 	import type { PageData } from './$types';
-	// import { buttonVariants } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import Badge from '$component/ui/badge/badge.svelte';
 
@@ -9,16 +7,6 @@
 </script>
 
 <main class="flex flex-col items-center justify-center min-h-screen">
-	<!-- <h1 class="flex items-end font-bold text-8xl">Account Information</h1>
-
-	<div class="pt-2 pb-4">
-		<p class="text-4xl">User id: {data.userId}</p>
-		<p class="text-4xl">Username: {data.username}</p>
-	</div>
-	<form method="post" action="?/logout" use:enhance>
-		<input type="submit" value="Sign out" class={buttonVariants({ variant: 'outline' })} />
-	</form> -->
-
 	<div class="mb-4">
 		<h3 class="text-6xl">Linked Repositories: {data.total_repository_count}</h3>
 		<!-- __select option to choose a repo to inspect__ -->

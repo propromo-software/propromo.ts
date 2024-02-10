@@ -11,13 +11,18 @@
 <ModeWatcher />
 
 <header class="sticky top-0 p-4">
-	<nav class="flex justify-end gap-4 uppercase">
-		<a class="px-4 py-2 hover:underline bg-primary text-accent rounded-xl" href="/signin"
-			>register</a
-		>
-		<a class="px-4 py-2 hover:underline bg-primary text-accent rounded-xl" href="/login"
-			>login</a
-		>
+	<nav class="flex justify-between gap-4 uppercase">
+		<a class="text-4xl font-bold tracking-wider text-primary font-headline" href="/">
+			Propromo
+		</a>
+		<div>
+			<a class="px-4 py-2 hover:underline rounded-xl" href="/signin">
+				register
+			</a>
+			<a class="px-4 py-2 hover:underline rounded-xl" href="/login">
+				login
+			</a>
+		</div>
 	</nav>
 </header>
 
@@ -25,9 +30,6 @@
 	<slot />
 </main>
 
-<footer
-	class="flex flex-col items-center gap-3 p-4 shadow-inner bg-secondary text-secondary-foreground"
->
+<footer class="flex flex-col items-center gap-3 p-4 shadow-inner">
 	<ThemeSwitch />
-	&COPY; Propromo
 </footer>
