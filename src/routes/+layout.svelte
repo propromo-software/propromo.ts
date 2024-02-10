@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+	import { ModeWatcher } from 'mode-watcher';
 	import ThemeSwitch from '$component/ThemeSwitch.svelte';
 	import '$main/app.css';
 	import '$main/style.scss';
 
 	injectSpeedInsights();
 </script>
+
+<ModeWatcher />
 
 <header class="sticky top-0 p-4">
 	<nav class="flex justify-end gap-4 uppercase">
