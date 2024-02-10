@@ -16,12 +16,8 @@
 			Propromo
 		</a>
 		<div>
-			<a class="px-4 py-2 hover:underline rounded-xl" href="/signin">
-				register
-			</a>
-			<a class="px-4 py-2 hover:underline rounded-xl" href="/login">
-				login
-			</a>
+			<a class="px-4 py-2 hover:underline rounded-xl" href="/signin"> register </a>
+			<a class="px-4 py-2 hover:underline rounded-xl" href="/login"> login </a>
 		</div>
 	</nav>
 </header>

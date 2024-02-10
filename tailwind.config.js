@@ -20,13 +20,13 @@ const config = {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				"propromo-green": '#229342',
-				"propromo-red": '#ff2300',
-				"propromo-red-light": '#ffb0a5',
-				"propromo-yellow": '#fbc02d',
-				"propromo-yellow-light": '#ffe495',
-				"propromo-white": '#FFFFFF',
-				"propromo-grey": '#DCDCDC',
+				'propromo-green': '#229342',
+				'propromo-red': '#ff2300',
+				'propromo-red-light': '#ffb0a5',
+				'propromo-yellow': '#fbc02d',
+				'propromo-yellow-light': '#ffe495',
+				'propromo-white': '#FFFFFF',
+				'propromo-grey': '#DCDCDC',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -63,9 +63,9 @@ const config = {
 				c: 'var(--radius-c)' /* containers */
 			},
 			fontFamily: {
-                sans: ['"Source Sans 3"', 'normal', ...fontFamily.sans],
-                headline: ['Koulen', 'normal', ...fontFamily.mono],
-				text: ['Figtree', 'normal', ...fontFamily.serif],
+				sans: ['"Source Sans 3"', 'normal', ...fontFamily.sans],
+				headline: ['Koulen', 'normal', ...fontFamily.mono],
+				text: ['Figtree', 'normal', ...fontFamily.serif]
 			}
 		}
 	},

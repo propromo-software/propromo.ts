@@ -13,7 +13,9 @@
 		<img src={logo} alt="logo" style="height: 300px;" />
 		<div>
 			<h1 class="uppercase text-8xl font-headline text-primary">Propromo</h1>
-			<h2 class="text-4xl text-gray-400 uppercase font-headline">Project Progress Monitoring</h2>
+			<h2 class="text-4xl text-gray-400 uppercase font-headline">
+				Project Progress Monitoring
+			</h2>
 			<div class="mt-8">
 				<div class="text-2xl">Works with:</div>
 				<div class="flex gap-1">
