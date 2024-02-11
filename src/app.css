@@ -39,7 +39,6 @@
 		--border: 0 0% 91%;
 		--input: 0 0% 84%;
 		--ring: 0 0% 76%;
-
 		--radius: 0.5rem;
 		--radius-c: 1.563rem; /* 25px, for containers */
 	}
@@ -63,7 +62,7 @@
 		--muted: 202 7% 29%;
 		--muted-foreground: 204 8% 49%;
 
-		--accent: 203 71% 19%;
+		--accent: 203 4.35% 5.9%;
 		--accent-foreground: 180 9% 98%;
 
 		--destructive: 0 84% 60%;
@@ -71,7 +70,7 @@
 
 		--border: 204 8% 12%;
 		--input: 202 9% 18%;
-		--ring: 203 100% 40%;
+		--ring: 202.5 5.56% 24.78%;
 	}
 }
 
