@@ -1,9 +1,11 @@
 {
-	"name": "",
-	"short_name": "",
-	"description": "",
+	"name": "Propromo",
+	"short_name": "PPM",
+	"description": "Your client wants to be involved. Propromo makes it possible.",
+	"theme_color": "#0d3268",
+	"background_color": "#ffffff",
 	"start_url": "/",
-	"display": "browser",
+	"display": "standalone",
 	"icons": [
 		{
 			"src": "/favicons/darkmode/manifest-icon-192.maskable.png",
