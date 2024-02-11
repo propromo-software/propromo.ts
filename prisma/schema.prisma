@@ -12,29 +12,72 @@ datasource db {
     relationMode = "prisma"
 }
 
-model User {
-    id       String @id @unique
-    username String @unique
+// USER(Info, Session)
 
-    auth_session Session[]
-    key          Key[]
+model User {
+    id String @id @unique
+
+    auth_session  Session[]
+    key           Key[]
+    user_projects User_Project[]
+
+    // properties
+    username String @unique
 }
 
 model Session {
-    id             String @id @unique
-    user_id        String
+    id      String @id @unique
+    user_id String
+
+    user User @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+    // properties
     active_expires BigInt
     idle_expires   BigInt
-    user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
 
     @@index([user_id])
 }
 
 model Key {
-    id              String  @id @unique
+    id      String @id @unique
+    user_id String
+
+    user User @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+    // properties
     hashed_password String?
-    user_id         String
-    user            User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
 
     @@index([user_id])
+}
+
+// DASHBOARD(Monitor, Project)
+model User_Project {
+    id         String @id @unique
+    user_id    String
+    project_id String
+
+    user    User    @relation(references: [id], fields: [user_id])
+    project Project @relation(references: [id], fields: [project_id])
+
+    // properties
+    permission PermissionEnum
+
+    @@index([user_id])
+    @@index([project_id])
+}
+
+enum PermissionEnum {
+    READ
+    WRITE
+    ADMIN
+}
+
+model Project {
+    id String @id @unique
+
+    user_projects User_Project[]
+
+    // properties
+    name        String
+    description String?
 }
