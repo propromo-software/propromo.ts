@@ -177,6 +177,7 @@ type UserTypesToIgnore =
 	| 'viewerIsSponsoring'
 	| 'watching'
 	| 'websiteUrl';
+/* eslint-disable @typescript-eslint/no-empty-interface */
 export interface MinimalUser extends Omit<User, UserTypesToIgnore> {}
 
 type LabelTypesToIgnore =
@@ -187,4 +188,5 @@ type LabelTypesToIgnore =
 	| 'isDefault'
 	| 'repository'
 	| 'resourcePath';
+/* eslint-disable @typescript-eslint/no-empty-interface */
 export interface MinimalLabel extends Omit<Label, LabelTypesToIgnore> {}

@@ -1,7 +1,6 @@
-import { auth } from '$lib/server/lucia';
-import { fail, redirect } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 
-import type { Actions, PageServerLoad } from './$types';
+import type { PageServerLoad } from './$types';
 import { REST_API_BASE_URL, REST_API_MILESTONE_ENDPOINT } from '$main/lib/rest_endpoints';
 import type { MinimalMilestone } from '$main/lib/types';
 
