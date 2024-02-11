@@ -1,9 +1,22 @@
 <script lang="ts">
-	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
-	import { ModeWatcher } from 'mode-watcher';
-	import ThemeSwitch from '$component/ThemeSwitch.svelte';
 	import '$main/app.css';
 	import '$main/style.scss';
+	import ThemeSwitch from '$component/ThemeSwitch.svelte';
+	import Button from '$component/ui/button/button.svelte';
+	import { ModeWatcher } from 'mode-watcher';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+	import { enhance } from '$app/forms';
+	import { buttonVariants } from '$component/ui/button';
+
+	import type { LayoutData } from './$types';
+	import Icon from '@iconify/svelte';
+
+	export let data: LayoutData;
+	$: username = data?.username;
+	$: loggedIn = data && typeof username === 'string' && username.length > 0;
+	const nav_classes_base = 'flex items-center justify-between gap-4 uppercase bg-background';
+	$: nav_classes = loggedIn ? `${nav_classes_base} border-2 p-4 rounded-xl` : nav_classes_base;
 
 	injectSpeedInsights();
 </script>
@@ -11,14 +24,40 @@
 <ModeWatcher />
 
 <header class="sticky top-0 p-4">
-	<nav class="flex justify-between gap-4 uppercase">
-		<a class="text-4xl font-bold tracking-wider text-primary font-headline" href="/">
+	<nav class={nav_classes}>
+		<a class="text-5xl font-bold tracking-wider text-primary font-headline" href="/">
 			Propromo
 		</a>
-		<div>
-			<a class="px-4 py-2 hover:underline rounded-xl" href="/signin"> register </a>
-			<a class="px-4 py-2 hover:underline rounded-xl" href="/login"> login </a>
-		</div>
+		{#if loggedIn}
+			<div class="flex items-center gap-2">
+				<a href="/settings/monitors"
+					><Icon
+						class="transition duration-300 cursor-pointer text-primary hover:rotate-180"
+						icon="mdi:settings"
+						width="50px"
+					/></a
+				>
+				<a href="/settings/security"
+					><Icon
+						class="cursor-pointer text-primary"
+						icon="material-symbols:account-circle"
+						width="50px"
+					/></a
+				>
+				<form method="post" action="?/logout" use:enhance>
+					<input
+						type="submit"
+						value="Sign out {username}"
+						class={buttonVariants({ variant: 'default' })}
+					/>
+				</form>
+			</div>
+		{:else}
+			<div>
+				<Button href="/signin">register</Button>
+				<Button href="/login">login</Button>
+			</div>
+		{/if}
 	</nav>
 </header>
 

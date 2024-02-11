@@ -13,21 +13,33 @@
 		<img src={logo} alt="logo" style="height: 300px;" />
 		<div>
 			<h1 class="uppercase text-8xl font-headline text-primary">Propromo</h1>
-			<h2 class="text-4xl text-gray-400 uppercase font-headline">
+			<h2
+				class="text-4xl pr-[0.7px] text-gray-400 uppercase border-b-[5px] border-gray-400 font-headline"
+			>
 				Project Progress Monitoring
 			</h2>
-			<div class="mt-8">
-				<div class="text-2xl">Works with:</div>
-				<div class="flex gap-1">
-					<a href="/login/github"><Icon icon="mdi:github" width="50px" /></a>
+			<div class="mr-[0.7px] border-r-[5px] border-gray-400">
+				<div class="mr-2">
+					<div class="flex gap-1 pt-1">
+						<a href="/login/github" class="transition duration-400 hover:text-primary"
+							><Icon icon="mdi:github" width="50px" /></a
+						>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<h3 class="mt-16 mb-2 text-2xl">Join a Project:</h3>
+	<h3 class="mt-16 mb-1 text-3xl font-bold uppercase text-primary">Join a Project:</h3>
 	<div class="flex gap-2">
-		<Input type="text" name="url" placeholder="url" id="url" bind:value={url} />
-		<Button href={id} class="uppercase">join</Button>
+		<Input
+			class="px-6 py-8 text-2xl"
+			type="text"
+			name="url"
+			placeholder="url"
+			id="url"
+			bind:value={url}
+		/>
+		<Button href={id} class="h-full max-w-full text-2xl uppercase min-w-32">join</Button>
 	</div>
 </div>
