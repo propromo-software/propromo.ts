@@ -12,5 +12,5 @@ export const REST_API_MILESTONE_ENDPOINT = function (
 		issue_states?: string | null;
 	}
 ) {
-	return `/${REST_API_VERSION}/github/orgs/${organization_name}/projects/${project_id}/repositories/milestones/${milestone_id}?depth=${query.depth}&issue_states=${query.issue_states}`;
+	return `${REST_API_BASE_URL}/${REST_API_VERSION}/github/orgs/${organization_name}/projects/${project_id}/repositories/milestones/${milestone_id}?depth=${query.depth}&issue_states=${query.issue_states}`;
 };

@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 
 import type { PageServerLoad } from './$types';
-import { REST_API_BASE_URL, REST_API_MILESTONE_ENDPOINT } from '$main/lib/rest_endpoints';
+import { REST_API_MILESTONE_ENDPOINT } from '$main/lib/rest_endpoints';
 import type { MinimalMilestone } from '$main/lib/types';
 
 export const load: PageServerLoad = async ({ locals, fetch, params, url }) => {
@@ -17,7 +17,13 @@ export const load: PageServerLoad = async ({ locals, fetch, params, url }) => {
 		params.milestone_id,
 		{ depth, issue_states }
 	);
-	const response = await fetch(`${REST_API_BASE_URL}/${endpoint}`);
+	const response = await fetch(endpoint);
+	console.log(endpoint, {
+		organization_name: params.organization_name,
+		project_id: params.project_id,
+		milestone_id: params.milestone_id,
+		filter: { depth, issue_states }
+	});
 
 	if (response.status !== 200) {
 		return {
