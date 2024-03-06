@@ -1,6 +1,6 @@
 {
 	"version": "1.0.0",
-	"name": "sveltekit-projecttemplate-business",
+	"name": "propromo.ts",
 	"description": "project template for sveltekit",
 	"private": true,
 	"author": "Jonas Froeller",
@@ -34,15 +34,20 @@
 		"start:rest": "cd ../propromo.rest && docker-compose up -d app",
 		"dev": "vite dev",
 		"build": "vite build",
+		"build:node": "cross-env BUILD_FOR_NODE_ENVIRONMENT=true npm run build",
+		"build:deno": "cross-env BUILD_FOR_DENO_ENVIRONMENT=true npm run build",
+		"build:bun": "cross-env BUILD_FOR_BUN_ENVIRONMENT=true npm run build",
 		"preview": "vite preview",
-		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest",
+		"test:ui": "vitest --ui",
+		"test:integration": "playwright test",
+		"coverage": "vitest run --coverage",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"commit": "cz",
-		"prepare": "husky install && npx prisma generate",
+		"prepare": "npx husky install && npx --yes prisma generate",
 		"generate-favicons": "npm-run-all generate-dark-favicons generate-light-favicons",
 		"generate-dark-favicons": "pwa-asset-generator ./static/favicons/favicon-dark.svg ./static/favicons/darkmode --index ./src/app.html --path-override '%sveltekit.assets%/favicons/darkmode' --type png --opaque false --dark-mode --favicon --n --p 2%",
 		"generate-light-favicons": "pwa-asset-generator ./static/favicons/favicon-light.svg ./static/favicons/lightmode --index ./src/app.html --path-override '%sveltekit.assets%/favicons/lightmode' --type png --opaque false --favicon --n --p 2%"
@@ -50,7 +55,8 @@
 	"devDependencies": {
 		"@iconify/svelte": "^3.1.4",
 		"@playwright/test": "^1.28.1",
-		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-auto": "^3.1.1",
+		"@sveltejs/adapter-node": "^4.0.1",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@tailwindcss/aspect-ratio": "^0.4.2",
@@ -59,6 +65,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
 		"@typescript-eslint/parser": "^5.62.0",
 		"autoprefixer": "^10.4.15",
+		"cross-env": "^7.0.3",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.52.0",
 		"eslint-config-prettier": "^8.10.0",
@@ -72,7 +79,9 @@
 		"rtlcss": "^4.1.1",
 		"sass": "^1.69.5",
 		"svelte": "^4.2.2",
+		"svelte-adapter-bun": "^0.5.2",
 		"svelte-check": "^3.4.3",
+		"sveltekit-adapter-deno": "^0.12.1",
 		"sveltekit-superforms": "^1.1.2",
 		"tailwindcss": "^3.3.5",
 		"tslib": "^2.6.0",
@@ -99,5 +108,8 @@
 		"tailwind-merge": "^1.14.0",
 		"tailwind-variants": "^0.1.16",
 		"tailwindcss-animate": "^1.0.6"
+	},
+	"optionalDependencies": {
+		"@rollup/rollup-linux-x64-gnu": "^4.9.5"
 	}
 }

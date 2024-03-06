@@ -1,0 +1,17 @@
+.dockerignore
+.editorconfig
+.env
+.gitignore
+.prettierignore
+.prettierrc
+netlify.toml
+playwright.config.ts
+
+schema.sql
+postgres.yml
+
+web.sh
+rest.sh
+db.sh
+Dockerfile.node
+node_modules

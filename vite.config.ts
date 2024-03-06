@@ -23,7 +23,7 @@ export default defineConfig({
 		}
 	},
 	preview: {
-		port: 6000,
+		port: 80,
 		strictPort: false
 	},
 	test: {

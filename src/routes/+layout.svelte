@@ -11,6 +11,7 @@
 
 	import type { LayoutData } from './$types';
 	import Icon from '@iconify/svelte';
+	import { browser } from '$app/environment';
 
 	export let data: LayoutData;
 	$: username = data?.username;
@@ -18,7 +19,9 @@
 	const nav_classes_base = 'flex items-center justify-between gap-4 uppercase bg-background';
 	$: nav_classes = loggedIn ? `${nav_classes_base} border-2 p-4 rounded-xl` : nav_classes_base;
 
-	injectSpeedInsights();
+	if (browser && window.location.href.includes('vercel')) {
+		injectSpeedInsights();
+	}
 </script>
 
 <ModeWatcher />
