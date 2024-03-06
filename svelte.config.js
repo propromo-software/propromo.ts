@@ -10,7 +10,7 @@ import adapterDeno from 'sveltekit-adapter-deno';
  * @param {string | undefined} value
  */
 function getEnvVariableAsBoolean(value) {
-	return JSON.parse(value?.toLowerCase() ?? "false") === true;
+	return JSON.parse(value?.toLowerCase() ?? 'false') === true;
 }
 
 const BUILD_FOR_NODE_ENVIRONMENT = getEnvVariableAsBoolean(process.env.BUILD_FOR_NODE_ENVIRONMENT);
@@ -23,15 +23,30 @@ const adapter = function () {
 
 		return adapterAuto();
 	} else {
-		let chosenAdapter = BUILD_FOR_NODE_ENVIRONMENT ? 'node' : BUILD_FOR_DENO_ENVIRONMENT ? 'deno' : BUILD_FOR_BUN_ENVIRONMENT ? 'bun' : 'auto';
-		let adapter = BUILD_FOR_NODE_ENVIRONMENT && !BUILD_FOR_DENO_ENVIRONMENT && !BUILD_FOR_BUN_ENVIRONMENT ? adapterNode : adapterAuto;
-		adapter = BUILD_FOR_DENO_ENVIRONMENT && !BUILD_FOR_NODE_ENVIRONMENT && !BUILD_FOR_BUN_ENVIRONMENT ? adapterDeno : adapter;
-		adapter = BUILD_FOR_BUN_ENVIRONMENT && !BUILD_FOR_NODE_ENVIRONMENT && !BUILD_FOR_DENO_ENVIRONMENT ? adapterBun : adapter;
+		let chosenAdapter = BUILD_FOR_NODE_ENVIRONMENT
+			? 'node'
+			: BUILD_FOR_DENO_ENVIRONMENT
+			? 'deno'
+			: BUILD_FOR_BUN_ENVIRONMENT
+			? 'bun'
+			: 'auto';
+		let adapter =
+			BUILD_FOR_NODE_ENVIRONMENT && !BUILD_FOR_DENO_ENVIRONMENT && !BUILD_FOR_BUN_ENVIRONMENT
+				? adapterNode
+				: adapterAuto;
+		adapter =
+			BUILD_FOR_DENO_ENVIRONMENT && !BUILD_FOR_NODE_ENVIRONMENT && !BUILD_FOR_BUN_ENVIRONMENT
+				? adapterDeno
+				: adapter;
+		adapter =
+			BUILD_FOR_BUN_ENVIRONMENT && !BUILD_FOR_NODE_ENVIRONMENT && !BUILD_FOR_DENO_ENVIRONMENT
+				? adapterBun
+				: adapter;
 
 		console.log('Using adapter', chosenAdapter);
 		return adapter();
 	}
-}
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
