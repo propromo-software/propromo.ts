@@ -3,9 +3,11 @@ import { defineConfig } from 'vitest/config';
 import { loadEnv } from 'vite';
 import { ngrok } from 'vite-plugin-ngrok';
 
-const VITE_NGROK_AUTH_TOKEN = loadEnv('development', process.cwd(), [
+const environment = loadEnv('development', process.cwd(), [
 	'VITE_'
-]).VITE_NGROK_AUTH_TOKEN; // import.meta.env.VITE_NGROK_AUTH_TOKEN;
+]);
+const VITE_NGROK_AUTH_TOKEN = environment.VITE_NGROK_AUTH_TOKEN; // import.meta.env.VITE_NGROK_AUTH_TOKEN;
+const VITE_PORT = !isNaN(Number(environment.VITE_PORT)) ? Number(environment.VITE_PORT) : undefined; // import.meta.env.VITE_PORT;
 
 export default defineConfig({
 	plugins: [
@@ -23,7 +25,7 @@ export default defineConfig({
 		}
 	},
 	preview: {
-		port: 80,
+		port: VITE_PORT ?? 3000, // PORT is the actual port of the bun server, VITE_PORT is just for the preview and the nodeJS server
 		strictPort: false
 	},
 	test: {

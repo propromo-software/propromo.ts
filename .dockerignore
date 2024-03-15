@@ -1,11 +1,6 @@
-.dockerignore
-.editorconfig
-.env
-.gitignore
 .prettierignore
 .prettierrc
 netlify.toml
-playwright.config.ts
 
 schema.sql
 postgres.yml
@@ -13,5 +8,19 @@ postgres.yml
 web.sh
 rest.sh
 db.sh
-Dockerfile.node
+
 node_modules
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+README.md
+LICENSE
+.vscode
+Makefile
+helm-charts
+.env
+.editorconfig
+.idea
+coverage*
