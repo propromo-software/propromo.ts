@@ -14,13 +14,16 @@ jobs:
       - name: Get latest release tag
         id: get_latest_tag
         run: |
-          LATEST_TAG=$(git ls-remote --tags origin | grep -v '^{}' | grep -v '^{} ' | awk '{print $2}' | sort -V | tail -n 1)
+          # LATEST_TAG=$(git ls-remote --tags origin | grep -v '^{}' | grep -v '^{} ' | awk '{print $2}' | sed 's/refs\/tags\///' | sort -V | tail -n 1)
+          git pull --tags
+          LATEST_TAG=$(git tag --sort=-version:refname | head -n 1)
           if [[ -z "${LATEST_TAG}" ]]; then
             TAG=$(date +"%Y.%m.%d.1")
             echo "latest_tag=${TAG}" >> $GITHUB_ENV
           else
             echo "latest_tag=${LATEST_TAG}" >> $GITHUB_ENV
           fi
+          echo "latest_tag=${latest_tag}"
 
       - name: Generate release tag
         id: generate_release_tag
