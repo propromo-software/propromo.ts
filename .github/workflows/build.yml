@@ -41,13 +41,14 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/propromo-website-ts:node
             ghcr.io/${{ github.repository_owner }}/propromo-website-ts:latest
 
-      - name: Build and push Bun.js image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          platforms: linux/amd64
-          file: Dockerfile.bun.env
-          push: true
-          tags: |
-            propromo/website-ts:bun
-            ghcr.io/${{ github.repository_owner }}/propromo-website-ts:bun
+      # NOT STABLE, sometimes builds and sometimes fails
+      # - name: Build and push Bun.js image
+      #  uses: docker/build-push-action@v5
+      #  with:
+      #    context: .
+      #    platforms: linux/amd64
+      #    file: Dockerfile.bun.env
+      #    push: true
+      #    tags: |
+      #      propromo/website-ts:bun
+      #      ghcr.io/${{ github.repository_owner }}/propromo-website-ts:bun
