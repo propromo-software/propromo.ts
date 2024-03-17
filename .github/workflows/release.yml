@@ -28,8 +28,17 @@ jobs:
           if [[ -z "${latest_tag}" ]]; then
             TAG=$(date +"%Y.%m.%d.1")
           else
-            IFS='.' read -r YYYY MM DD I <<< "${latest_tag%.*}"
+            IFS='.' read -r YYYY MM DD I <<< "${latest_tag}"
+
+            echo "latest_tag=$latest_tag"
+            echo "YYYY=$YYYY"
+            echo "MM=$MM"
+            echo "DD=$DD"
+            echo "I=$I"
+
             TAG="${YYYY}.${MM}.${DD}.$((I+1))"
+
+            echo "TAG=$TAG"
           fi
           echo "next_release_tag=${TAG}" >> $GITHUB_OUTPUT
 
