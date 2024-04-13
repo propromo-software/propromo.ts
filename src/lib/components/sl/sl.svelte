@@ -7,7 +7,9 @@
       Input = 'input',
       ProgressBar = 'progress-bar',
       Spinner = 'spinner',
-      CopyButton = 'copy-button'
+      CopyButton = 'copy-button',
+      Switch = 'switch',
+      Divider = 'divider'
     }
 </script>
 
@@ -52,6 +54,12 @@
                 break;
             case ShoelaceComponentOptions.CopyButton:
                 await import('@shoelace-style/shoelace/dist/components/copy-button/copy-button.js');
+                break;
+            case ShoelaceComponentOptions.Switch:
+                await import('@shoelace-style/shoelace/dist/components/switch/switch.js');
+                break;
+            case ShoelaceComponentOptions.Divider:
+                await import('@shoelace-style/shoelace/dist/components/divider/divider.js');
                 break;
             default:
                 console.error('No such component found');

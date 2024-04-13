@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Switch } from '$component/ui/switch';
+	import Sl, { ShoelaceComponentOptions } from '$component/sl/sl.svelte';
 	import { toggleMode, mode as mw_mode } from 'mode-watcher';
 	import { onMount } from 'svelte';
 
@@ -11,7 +11,9 @@
 		toggleMode();
 	}
 
-	let mode = { checked: false };
+	$: mode = { checked: false };
 </script>
 
-<Switch bind:checked={mode.checked} />
+<Sl component={[ShoelaceComponentOptions.Switch]}>
+	<sl-switch on:sl-change={() => toggleMode()} defaultChecked={mode.checked} style="--width: 40px; --height: 20px; --thumb-size: 18px;"></sl-switch>
+</Sl>

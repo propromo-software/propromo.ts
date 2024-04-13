@@ -7,62 +7,21 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		container: {
-			center: true,
-			padding: '2rem',
-			screens: {
-				'2xl': '1400px'
-			}
+			center: true
 		},
 		extend: {
 			colors: { // TODO: cleanup
-				'primary-blue': '#0D3269',
-				'secondary-grey': '#9A9A9A',
-				'other-grey': '#DCDCDC',
-				'border-color': 'rgba(0, 0, 0, 0.2)',
-				'additional-green':'#229342',
-				'additional-orange':'#FBC116',
-				'additional-red':'#E33B2E',
-
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				primary: '#0D3269',
+				secondary: '#9A9A9A',
 				'propromo-green': '#229342',
 				'propromo-red': '#ff2300',
 				'propromo-red-light': '#ffb0a5',
+				'propromo-orange':'#FBC116',
+				'propromo-orange-light':'#FDE9D9',
 				'propromo-yellow': '#fbc02d',
 				'propromo-yellow-light': '#ffe495',
 				'propromo-white': '#FFFFFF',
-				'propromo-grey': '#DCDCDC',
-				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
-				},
-				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
-				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
-				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
-				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
-				},
-				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
-				}
+				'propromo-grey': '#DCDCDC'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -4,11 +4,10 @@
 
 	/* Shoelace */
 	import Shoelace from '$component/sl/Shoelace.svelte';
+	import Sl, { ShoelaceComponentOptions } from '$component/sl/sl.svelte';
 
 	/* Other Components */
 
-	import { buttonVariants } from '$component/ui/button';
-	import Button from '$component/ui/button/button.svelte';
 	import ThemeSwitch from '$component/ThemeSwitch.svelte';
 	import Icon from '@iconify/svelte';
 
@@ -25,7 +24,7 @@
 	// @ts-ignore
 	$: username = data?.username;
 	$: loggedIn = data && typeof username === 'string' && username.length > 0;
-	const nav_classes_base = 'flex items-center justify-between gap-4 uppercase bg-background';
+	const nav_classes_base = 'flex items-center justify-between gap-4 uppercase bg-gray-100';
 	$: nav_classes = loggedIn ? `${nav_classes_base} border-2 p-4 rounded-xl` : nav_classes_base;
 
 	if (browser && window.location.href.includes('vercel')) {
@@ -58,17 +57,17 @@
 					/></a
 				>
 				<form method="post" action="?/logout" use:enhance>
-					<input
-						type="submit"
-						value="Sign out {username}"
-						class={buttonVariants({ variant: 'default' })}
-					/>
+					<Sl component={ShoelaceComponentOptions.Button}>
+						<sl-button variant="primary" type="submit">Sign out {username}</sl-button>
+					</Sl>
 				</form>
 			</div>
 		{:else}
-			<div>
-				<Button href="/signin">register</Button>
-				<Button href="/login">login</Button>
+			<div class="flex gap-4">
+				<Sl component={ShoelaceComponentOptions.Button}>
+					<sl-button variant="primary" href="/signin">register</sl-button>
+					<sl-button variant="primary" href="/login">login</sl-button>
+				</Sl>
 			</div>
 		{/if}
 	</nav>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { buttonVariants } from '$lib/components/ui/button';
 	import type { PageData } from './$types';
+	import Sl, { ShoelaceComponentOptions } from '$component/sl/sl.svelte';
 
 	export let data: PageData;
 </script>
@@ -14,6 +14,6 @@
 		<p class="text-4xl">Username: {data.username}</p>
 	</div>
 	<form method="post" action="?/logout" use:enhance>
-		<input type="submit" value="Sign out" class={buttonVariants({ variant: 'outline' })} />
+		<Sl component={ShoelaceComponentOptions.Button}><sl-button type="submit">Sign out</sl-button></Sl>
 	</form>
 </div>
