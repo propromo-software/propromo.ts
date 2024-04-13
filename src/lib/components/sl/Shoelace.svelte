@@ -16,20 +16,22 @@
 	import '@shoelace-style/shoelace/dist/components/dialog/dialog.js'; */
 
 	import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
-	setBasePath('/');
+	setBasePath('/'); // asset location
 
     onMount(async () => {
-        // await import('');
-
-        // activates shoelace web components
+        // imports and activates all shoelace web-components
         await import('@shoelace-style/shoelace/dist/shoelace.js');
     });
 </script>
 
-{#await import("@shoelace-style/shoelace/dist/components/input/input.js")}
+<slot>
+    no shoelace component passed...
+</slot>
+
+<!-- {#await import("@shoelace-style/shoelace/dist/components/<component__entry_path>")} -->
     <!-- promise is pending -->
-{:then value}
-    <sl-input></sl-input>
-{:catch error}
+<!-- {:then value} -->
+    <!-- use component -->
+<!-- {:catch error} -->
     <!-- promise was rejected -->
-{/await}
+<!-- {/await} -->
