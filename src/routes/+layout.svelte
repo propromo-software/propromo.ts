@@ -2,18 +2,23 @@
 	import '$main/app.css';
 	import '$main/style.scss';
 
-	/* --- */
+	/* Shoelace */
+	import Shoelace from '$component/sl/Shoelace.svelte';
 
-	import ThemeSwitch from '$component/ThemeSwitch.svelte';
+	/* Other Components */
+
+	import { buttonVariants } from '$component/ui/button';
 	import Button from '$component/ui/button/button.svelte';
+	import ThemeSwitch from '$component/ThemeSwitch.svelte';
+	import Icon from '@iconify/svelte';
+
 	import { ModeWatcher } from 'mode-watcher';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
-	import { enhance } from '$app/forms';
-	import { buttonVariants } from '$component/ui/button';
+	/* --- */
 
+	import { enhance } from '$app/forms';
 	import type { LayoutData } from './$types';
-	import Icon from '@iconify/svelte';
 	import { browser } from '$app/environment';
 
 	export let data: LayoutData;
@@ -28,6 +33,7 @@
 	}
 </script>
 
+<Shoelace />
 <ModeWatcher />
 
 <header class="sticky top-0 p-4">
