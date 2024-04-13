@@ -14,6 +14,7 @@
 	import { browser } from '$app/environment';
 
 	export let data: LayoutData;
+	// @ts-ignore
 	$: username = data?.username;
 	$: loggedIn = data && typeof username === 'string' && username.length > 0;
 	const nav_classes_base = 'flex items-center justify-between gap-4 uppercase bg-background';
