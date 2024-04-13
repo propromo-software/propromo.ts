@@ -3,12 +3,48 @@
 @import url('https://api.fonts.coollabs.io/css2?family=Koulen');
 @import url('https://api.fonts.coollabs.io/css2?family=Source+Sans+3:wght@700;400&display=swap');
 
-/* color-themes */
-/* extended tailwindcss classes */
+/* Color Themes */
+
+@import './lib/styles/light-theme.css';
+@import './lib/styles/dark-theme.css';
+
+/* TODO: also apply to shadcn themes */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* SHOELACE */
+
+/* purge tailwind classes 
+for all sl components !important */
+sl-input,
+sl-button {
+	all: revert;
+}
+
+.sl-toast-stack {
+	left: 0;
+	right: auto;
+}
+
+#url {
+	@apply w-full
+}
+
+sl-input::part(base) {
+	@apply font-sans
+}
+
+sl-alert::part(base) {
+	@apply absolute bottom-0 right-0 z-40 mb-4 mr-4;
+}
+
+sl-button::part(base) {
+	@apply font-sans font-bold text-white rounded-md cursor-pointer bg-primary-blue;
+}
+
+/* SHADCN */
 
 @layer base {
 	:root {
@@ -40,7 +76,8 @@
 		--input: 0 0% 84%;
 		--ring: 0 0% 76%;
 		--radius: 0.5rem;
-		--radius-c: 1.563rem; /* 25px, for containers */
+		--radius-c: 1.563rem;
+		/* 25px, for containers */
 	}
 
 	.dark {
@@ -74,10 +111,13 @@
 	}
 }
 
+/* GLOBAL */
+
 @layer base {
 	* {
 		@apply border-border;
 	}
+
 	body {
 		@apply bg-background text-foreground;
 	}

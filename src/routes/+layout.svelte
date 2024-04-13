@@ -1,6 +1,9 @@
 <script lang="ts">
 	import '$main/app.css';
 	import '$main/style.scss';
+
+	/* --- */
+
 	import ThemeSwitch from '$component/ThemeSwitch.svelte';
 	import Button from '$component/ui/button/button.svelte';
 	import { ModeWatcher } from 'mode-watcher';

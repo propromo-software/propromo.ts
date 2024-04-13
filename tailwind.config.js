@@ -14,7 +14,15 @@ const config = {
 			}
 		},
 		extend: {
-			colors: {
+			colors: { // TODO: cleanup
+				'primary-blue': '#0D3269',
+				'secondary-grey': '#9A9A9A',
+				'other-grey': '#DCDCDC',
+				'border-color': 'rgba(0, 0, 0, 0.2)',
+				'additional-green':'#229342',
+				'additional-orange':'#FBC116',
+				'additional-red':'#E33B2E',
+
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
