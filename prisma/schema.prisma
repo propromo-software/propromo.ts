@@ -18,12 +18,16 @@ datasource db {
 model User {
     id String @id @unique
 
-    auth_session  Session[]
-    key           Key[]
-    user_projects User_Project[]
+    auth_session Session[]
+    key          Key[]
+    monitors     User_Monitor_Token[]
 
     // properties
-    username String @unique
+    username String @unique // email
+    name     String?
+
+    createdAt DateTime @default(now()) // DB time ...yeah
+    updatedAt DateTime @updatedAt // Server time ...yeah
 }
 
 model Session {
@@ -51,20 +55,25 @@ model Key {
     @@index([user_id])
 }
 
-// DASHBOARD(Monitor, Project)
-model User_Project {
+model User_Monitor_Token {
     id         String @id @unique
     user_id    String
-    project_id String
+    monitor_id String
+    token_id   String
 
     user    User    @relation(references: [id], fields: [user_id])
-    project Project @relation(references: [id], fields: [project_id])
+    project Monitor @relation(references: [id], fields: [monitor_id])
+    token   Token   @relation(references: [id], fields: [token_id])
 
     // properties
     permission PermissionEnum
+    
+    createdAt DateTime @default(now()) // DB time ...yeah
+    updatedAt DateTime @updatedAt // Server time ...yeah
 
     @@index([user_id])
-    @@index([project_id])
+    @@index([monitor_id])
+    @@index([token_id])
 }
 
 enum PermissionEnum {
@@ -73,12 +82,22 @@ enum PermissionEnum {
     ADMIN
 }
 
-model Project {
-    id String @id @unique
+model Monitor {
+    id   String @id @unique
+    hash String @unique @default(uuid())
 
-    user_projects User_Project[]
+    monitors User_Monitor_Token[]
 
     // properties
     name        String
     description String?
+}
+
+model Token {
+    id String @id @unique
+
+    monitors User_Monitor_Token[]
+
+    // properties
+    value String
 }
