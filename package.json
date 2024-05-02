@@ -29,6 +29,7 @@
 		"web-checked": "npm-run-all --parallel dev check",
 		"start:dev": "npm-run-all --parallel start:db start:rest start:web",
 		"start:db": "docker-compose -f postgres.yml up -d postgres && npm install @prisma/client && npx --yes prisma db push && npx --yes prisma generate",
+        "fill:db": "npm install @prisma/client && npx --yes prisma db push && npx --yes prisma generate",
 		"start:dbd": "npx prisma studio",
 		"start:web": "npm-run-all --parallel dev check",
 		"start:rest": "cd ../propromo.rest && docker-compose up -d app",
