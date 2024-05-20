@@ -1,4 +1,38 @@
-import type { Milestone, Issue, User, Label } from '@octokit/graphql-schema';
+import type { ProjectV2, Repository, Milestone, Issue, User, Label, Scalars } from '@octokit/graphql-schema';
+
+type RepositoryTypesToIgnore =
+	| '__typename'
+	| 'milestones'; // TODO: add all types to ignore
+export interface MinimalRepository extends Omit<Repository, RepositoryTypesToIgnore> {
+	milestones: {
+		totalCount: number;
+		nodes: MinimalMilestone[];
+	}
+};
+
+type ProjectInfoTypesToIgnore =
+	| '__typename'
+	| 'closed'
+	| 'creator'
+	| 'databaseId'
+	| 'field'
+	| 'fields'
+	| 'id'
+	| 'items'
+	| 'number'
+	| 'owner'
+	| 'repositories'
+	| 'resourcePath'
+	| 'teams'
+	| 'template'
+	| 'view'
+	| 'viewerCanClose'
+	| 'viewerCanReopen'
+	| 'viewerCanUpdate'
+	| 'views'
+	| 'workflow'
+	| 'workflows';
+export interface ProjectInfo extends Omit<ProjectV2, ProjectInfoTypesToIgnore> { };
 
 type MilestoneTypesToIgnore =
 	| '__typename'
@@ -12,10 +46,14 @@ type MilestoneTypesToIgnore =
 	| 'viewerCanClose'
 	| 'viewerCanReopen';
 export interface MinimalMilestone extends Omit<Milestone, MilestoneTypesToIgnore> {
-	filtered_issues: {
+	open_issues: {
 		totalCount: number;
 		nodes: MinimalIssue[];
-	};
+	},
+	closed_issues: {
+		totalCount: number;
+		nodes: MinimalIssue[];
+	}
 }
 
 type IssueTypesToIgnore =
@@ -178,7 +216,7 @@ type UserTypesToIgnore =
 	| 'watching'
 	| 'websiteUrl';
 /* eslint-disable @typescript-eslint/no-empty-interface */
-export interface MinimalUser extends Omit<User, UserTypesToIgnore> {}
+export interface MinimalUser extends Omit<User, UserTypesToIgnore> { }
 
 type LabelTypesToIgnore =
 	| '__typename'
@@ -189,4 +227,4 @@ type LabelTypesToIgnore =
 	| 'repository'
 	| 'resourcePath';
 /* eslint-disable @typescript-eslint/no-empty-interface */
-export interface MinimalLabel extends Omit<Label, LabelTypesToIgnore> {}
+export interface MinimalLabel extends Omit<Label, LabelTypesToIgnore> { }

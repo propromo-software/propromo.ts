@@ -24,7 +24,8 @@
 	// @ts-ignore
 	$: username = data?.username;
 	$: loggedIn = data && typeof username === 'string' && username.length > 0;
-	const nav_classes_base = 'flex items-center justify-between gap-4 uppercase bg-gray-100 border-2 p-4 rounded-xl';
+	const nav_classes_base =
+		'flex items-center justify-between gap-4 uppercase bg-gray-100 border-2 p-4 rounded-xl';
 	$: nav_classes = loggedIn ? `${nav_classes_base}` : nav_classes_base;
 
 	if (browser && window.location.href.includes('vercel')) {
@@ -73,7 +74,7 @@
 	</nav>
 </header>
 
-<main class="flex justify-center min-h-screen mt-12">
+<main class="flex justify-center min-h-screen mt-4">
 	<slot />
 </main>
 
